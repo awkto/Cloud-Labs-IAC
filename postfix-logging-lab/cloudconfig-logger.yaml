@@ -1,0 +1,32 @@
+#cloud-config
+users:
+  - name: altanc
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0h7ittlcdrrrz+WqQsNph0Mvvx0ZDVnGAhDazI9NiIDXVu1B2hEDecb8/i6pQbVXD4/iK6kOKkAtG+owWYg2nzj2HmPSI8aN1khyplXRJRqg2MJvTAaWrF/xrU/BpoJcB8c97boinh/8TLyrTxvzZZCz044fWzReDO/LoRIjMeaYn54rPpVJB1ZZq28hUIqu8+Z6d1I4vKsMvIA/pu5ZDs3U0iPut1e+GjHW7AwZhouxsaRfajq6cWfszouGDYzFOBDSDK5wxGumAe/+vJkzLz4ZRXd6/ckCnXWMIVpAILlVAHKnjKRh9KlEvm8e11irbQn9d0WJ6cO+MtKm3Y7pxazZIQu18qJxSQHSqkh0RJmZqQBsesB7FGVSs607KZz7iQY4HmgaHwf9S092ddW4uIt0AqqXIhrQ5ws1HjC1t/FxVM9BBrEjO4h77DSu6o8xmUi8IYc7YNixaR2A73ifpNaLfeTJygj3iu1Z13+U4VrXobE9DtAqNawsoXW23TLU= altan@linux
+  - name: ansible
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2aHkzMUavgrvygP0S+VrXR48TazGglnZ8b+sG1FD2NNYMd3zCz3y6zQ9O+R4II12MkPcLQ0vsXdCAimBK0Tkp2X+B7iQ25BEgAsWr9YQY2bSu6o336M7fxebuQmM6+VXSslKTobMMosQ8nducnV5g7dGSGOBnRFT2wAD0vy/UYk/lsRwmSnwnqJIWPHWAiLxry+q1zg6gF2Y4FspZ8IKYs3b1pkR3z1JdPEmJHQgtggybmST4iYFVHF+S2gBcz/g2ZfIsHwAs3oJ2HeFb31qlDzuanh43VrCY7ZKLPwMCRScli5UZXRCh3ap9n7y6ZSIfNV6iULbn7zlLYTDPnv0ZswBfbtDRJT190+T3vzjwy6FriCr4qc1DPWlK67nb7sQuiC1TsMtukrn277eWLAEvlV/oL01wteEEqqDFiKqWcizzB1RBBDUjNvoWmcTc5uJ0zqWTglktkVxVTHUBQDJPbe6apqyLxUMw976h/Sbl/5G8lSDhmoNWvDjGIGXggt0= ansible@cloud
+disable_root: true
+packages:
+  - nginx
+  - bind-utils
+  - net-tools
+  - wget
+  - curl
+  - nano
+  - nc
+  - postfix
+
+runcmd:
+  - 'export PUBLIC_IPV4=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address)'
+  - 'echo Droplet: $(hostname), IP Address: $PUBLIC_IPV4 > /tmp/public-ip.txt'
+  - touch /tmp/cloudinit-01-started
+  - dnf check-update
+  - dnf update -y
+  - touch /tmp/cloudinit-02-dnf-update-completed
+  
+  
