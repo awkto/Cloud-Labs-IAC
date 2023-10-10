@@ -39,7 +39,7 @@ resource "digitalocean_droplet" "appserver" {
   name      = "appserver.dnsif.ca"
   region    = "syd1"
   size      = "s-2vcpu-4gb-amd"
-  #user_data = file("cloudconfig.yaml")
+  user_data = file("cloudconfig-appserver.yaml")
   ssh_keys = [data.digitalocean_ssh_key.ansible.id, data.digitalocean_ssh_key.user.id]
 
 
@@ -95,7 +95,7 @@ resource "digitalocean_droplet" "logger" {
   name      = "logger.dnsif.ca"
   region    = "syd1"
   size      = "s-2vcpu-4gb-amd"
-  #user_data = file("cloudconfig.yaml")
+  user_data = file("cloudconfig-logger.yaml")
   ssh_keys = [data.digitalocean_ssh_key.ansible.id, data.digitalocean_ssh_key.user.id]
 
 
