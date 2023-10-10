@@ -6,6 +6,7 @@ Terraform scripts deploy 2 DigitalOcean Droplet VMs with AlmaLinux OS.
 - Cloudinit script is passed which
   - Disables root user
   - Adds ansible user with sudo and pubkey
-  - Adds main
+  - Adds main user with sudo and pubkey
+  - Runs dnf updates, installs tools
 
-Ansible configures them 
+Ansible is then hooked in, and runs remotely, configuring further items (work in progress)
