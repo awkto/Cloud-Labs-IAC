@@ -12,8 +12,8 @@ terraform {
 # Set the variable value in *.tfvars file
 # or using -var="do_token=..." CLI option
 variable "do_token" {}
-variable "pub_key" {}
-variable "pvt_key" {}
+variable "ans_pub_key" {}
+variable "ans_pvt_key" {}
 
 # Configure the DigitalOcean Provider
 provider "digitalocean" {
@@ -26,7 +26,7 @@ data "digitalocean_ssh_key" "ansible" {
 }
 
 data "digitalocean_ssh_key" "user" {
-  name = "altan-linux"
+  name = "awkto-dev"
 }
 
 
@@ -48,8 +48,8 @@ resource "digitalocean_droplet" "appserver" {
     connection {
       host        = self.ipv4_address
       type        = "ssh"
-      user        = "root"
-      private_key = file(var.pvt_key)
+      user        = "ansible"
+      private_key = file(var.ans_pvt_key)
     }
   }
   # provisioner "local-exec" {
@@ -104,8 +104,8 @@ resource "digitalocean_droplet" "logger" {
     connection {
       host        = self.ipv4_address
       type        = "ssh"
-      user        = "root"
-      private_key = file(var.pvt_key)
+      user        = "ansible"
+      private_key = file(var.ans_pvt_key)
     }
   }
   # provisioner "local-exec" {

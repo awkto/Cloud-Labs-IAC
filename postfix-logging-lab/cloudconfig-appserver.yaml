@@ -1,10 +1,10 @@
 #cloud-config
 users:
-  - name: altanc
+  - name: awkto
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0h7ittlcdrrrz+WqQsNph0Mvvx0ZDVnGAhDazI9NiIDXVu1B2hEDecb8/i6pQbVXD4/iK6kOKkAtG+owWYg2nzj2HmPSI8aN1khyplXRJRqg2MJvTAaWrF/xrU/BpoJcB8c97boinh/8TLyrTxvzZZCz044fWzReDO/LoRIjMeaYn54rPpVJB1ZZq28hUIqu8+Z6d1I4vKsMvIA/pu5ZDs3U0iPut1e+GjHW7AwZhouxsaRfajq6cWfszouGDYzFOBDSDK5wxGumAe/+vJkzLz4ZRXd6/ckCnXWMIVpAILlVAHKnjKRh9KlEvm8e11irbQn9d0WJ6cO+MtKm3Y7pxazZIQu18qJxSQHSqkh0RJmZqQBsesB7FGVSs607KZz7iQY4HmgaHwf9S092ddW4uIt0AqqXIhrQ5ws1HjC1t/FxVM9BBrEjO4h77DSu6o8xmUi8IYc7YNixaR2A73ifpNaLfeTJygj3iu1Z13+U4VrXobE9DtAqNawsoXW23TLU= altan@linux
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCs1lHdBrinBNKaCW5EuyycR2NRwzzcRHBJKpUmuaHS1laBQM1d00Qtln0OOkMym7ORPjZdZcSxejMKqnpZuDJ1dqXufpv/93unOt+4B8F+wRlwiFXH2b3j3HbSLiyAMinGukOW7l8vagrshETOH+pCe80lKhZ56jmR9XiGzV8JJDAWkfVNvaJzpAdbssifVGwx9Fx//u+1VtueRcTgvcF1hzpHSzvxyKiiyhq3SJC52j6e7AzsKpLg3zmTYMXphhE90P+HtDiKXprDe+UUV51P4cc93IZiZktBoCyGg6UdPUk8asH/RlPeNKCyYHph42TW5VTcZHnnIpmRFUyqIn8zHhibWi9r+zMCosw3kdI49YMLrD4RLZLmD9pZk+eEOFrhcE8O/TqJr8DdrAkV4oczYbjJU5GuEWADr1zUrRVI3GaljihCtElGTHaoVrCD7G+fpsdGVPmb/fy1mPpmXmmk1ewKWCWT6a6GTGtxni+CPeIh0jtjeJKuTMuAbiiya4E= awkto@dev
   - name: ansible
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
